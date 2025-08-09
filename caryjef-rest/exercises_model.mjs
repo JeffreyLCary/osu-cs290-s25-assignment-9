@@ -1,5 +1,5 @@
 /**
- * Add your first name and last name.
+ * Jeffrey Cary
  */
 import mongoose from 'mongoose';
 import 'dotenv/config';
