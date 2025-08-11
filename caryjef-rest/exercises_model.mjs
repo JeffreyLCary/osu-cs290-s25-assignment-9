@@ -23,4 +23,19 @@ async function connect(){
     }
 }
 
-export { connect};
+const exerciseSchema = mongoose.Schema({
+    name : {type: String, required: true},
+    reps : {type: Number, required: true},
+    weight : {type: Number, required: true},
+    unit : {type: String, required: true},
+    date : {type: String, required: true}
+});
+
+const Exercise = mongoose.model('Exercise', exerciseSchema);
+
+const createExercise = async (name, reps, weight, unit, date) => {
+    const exercise = new Exercise({ name: name, reps: reps, weight: weight, unit: unit, date: date});
+    return exercise.save();
+}
+
+export { connect, createExercise};
