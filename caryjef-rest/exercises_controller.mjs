@@ -77,7 +77,7 @@ app.post('/exercises', asyncHandler(async (req, res) => {
 
 app.get('/exercises', asyncHandler(async (req, res) => {
     let resultArray = [];
-    resultArray.push(await exercises.readExercises(null));
+    resultArray = await exercises.readExercises(null);
     res.status(200).json(resultArray);
 }));
 

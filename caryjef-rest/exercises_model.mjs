@@ -49,7 +49,7 @@ const readExercises = async (_id) => {
 };
 
 const updateExercise = async (_id, body) => {
-    const updateResult = await Exercise.updateOne({"_id": id}, body);
+    const updateResult = await Exercise.updateOne({"_id": _id}, body);
     if (updateResult.matchedCount === 0) {
         return {};
     }
