@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import ExerciseCollection from '../components/ExerciseCollection';
+import ExerciseTable from '../components/ExerciseTable';
 import { useEffect, useState } from 'react';
 
 function HomePage() {
@@ -15,10 +15,22 @@ function HomePage() {
         loadExercises();
     }, []);
 
+    const onDelete = async (_id) => {
+        const response = await fetch(
+            `/exercises/${_id}`,
+            {method: 'DELETE'}
+        );
+        if (response.status == 204){
+            setExercises(exercises.filter(e => e._id !== _id));
+        } else {
+            alert(`Failed to delete the exercise with _id = ${_id}, status code = ${response.status}`);
+        };
+    };
+
     return (
         <>
             <h2>List of Exercises</h2>
-            <ExerciseCollection exercises={exercises}></ExerciseCollection>
+            <ExerciseTable exercises={exercises} onDelete={onDelete}></ExerciseTable>
             <Link to="/create-exercise">Add an exercise</Link>
         </>
     );
