@@ -1,3 +1,4 @@
+*/node-modules/*
 caryjef-rest/a9-test-requests.http
 caryjef-rest/node_modules/.package-lock.json
 caryjef-rest/node_modules/.bin/mime

@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
 import ExerciseTable from '../components/ExerciseTable';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-function HomePage() {
+function HomePage({setExerciseToEdit}) {
     const [exercises, setExercises] = useState([]);
+    const navigate = useNavigate();
 
     const loadExercises = async () => {
         const response = await fetch('/exercises');
@@ -27,10 +29,15 @@ function HomePage() {
         };
     };
 
+    const onEdit = async (exercise) => {
+        setExerciseToEdit(exercise);
+        navigate('/edit-exercise')
+    }
+
     return (
         <>
             <h2>List of Exercises</h2>
-            <ExerciseTable exercises={exercises} onDelete={onDelete}></ExerciseTable>
+            <ExerciseTable exercises={exercises} onDelete={onDelete} onEdit={onEdit}></ExerciseTable>
             <Link to="/create-exercise">Add an exercise</Link>
         </>
     );

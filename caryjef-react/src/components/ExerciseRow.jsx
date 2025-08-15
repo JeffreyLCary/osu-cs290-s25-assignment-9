@@ -2,7 +2,7 @@ import '../App.css';
 import { MdDelete, MdEdit } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 
-function ExerciseRow({ exercise, onDelete }) {
+function ExerciseRow({ exercise, onDelete, onEdit }) {
 
     const navigate = useNavigate();
 
@@ -14,8 +14,8 @@ function ExerciseRow({ exercise, onDelete }) {
                 <td>{exercise.weight}</td>
                 <td>{exercise.unit}</td>
                 <td>{exercise.date}</td>
-                <MdEdit onClick={e => { e.preventDefault(); navigate('/edit-exercise')}}/>
-                <MdDelete onClick={e => { e.preventDefault(); onDelete(exercise._id)}}/>
+                <MdEdit onClick={e => { e.preventDefault(); onEdit(exercise) }}/>
+                <MdDelete onClick={e => { e.preventDefault(); onDelete(exercise._id) }}/>
             </tr>
         </>
     )

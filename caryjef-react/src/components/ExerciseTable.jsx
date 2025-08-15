@@ -1,8 +1,9 @@
+import '../App.css';
 import ExerciseRow from './ExerciseRow';
 
-function ExerciseTable({exercises, onDelete}) {
+function ExerciseTable({exercises, onDelete, onEdit}) {
     return (
-        <div className="exercise-table">
+        <>
             <thead>
                 <tr>
                     <td>Name</td>
@@ -16,9 +17,9 @@ function ExerciseTable({exercises, onDelete}) {
             </thead>
             <tbody>
                 {exercises.map((exercise) => <ExerciseRow exercise={exercise}
-                        onDelete={onDelete} key={exercise._id} />)}
+                        onDelete={onDelete} onEdit={onEdit} key={exercise._id} />)}
             </tbody>
-        </div>
+        </>
     );
 };
 
