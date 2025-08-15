@@ -1,4 +1,3 @@
-import '../App.css';
 import ExerciseRow from './ExerciseRow';
 
 function ExerciseTable({exercises, onDelete, onEdit}) {
@@ -6,13 +5,11 @@ function ExerciseTable({exercises, onDelete, onEdit}) {
         <>
             <thead>
                 <tr>
-                    <td>Name</td>
-                    <td>Reps</td>
-                    <td>Weight</td>
-                    <td>Units</td>
-                    <td>Date</td>
-                    <td>Edit</td>
-                    <td>Delete</td>
+                    <th>Name</th>
+                    <th>Reps</th>
+                    <th>Weight</th>
+                    <th>Units</th>
+                    <th>Date</th>
                 </tr>
             </thead>
             <tbody>

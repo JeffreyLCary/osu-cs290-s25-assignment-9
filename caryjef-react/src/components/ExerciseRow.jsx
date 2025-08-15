@@ -1,4 +1,3 @@
-import '../App.css';
 import { MdDelete, MdEdit } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 

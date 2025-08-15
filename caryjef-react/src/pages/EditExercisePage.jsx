@@ -43,10 +43,10 @@ export const EditExercisePage = ({exerciseToEdit}) => {
                 type="number"
                 value={weight}
                 onChange={e => setWeight(e.target.valueAsNumber)} />
-            <input
-                type="text"
-                value={unit}
-                onChange={e => setUnit(e.target.value)} />
+            <select defaultValue={exerciseToEdit.unit}>
+                <option value="kgs" onChange={e => setUnit(e.target.value)}>kgs</option>
+                <option value="lbs" onChange={e => setUnit(e.target.value)}>lbs</option>
+            </select>
             <input
                 type="text"
                 value={date}
